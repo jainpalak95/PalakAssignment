@@ -10,17 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
   
- //MARK: IBOutlets
-var tblview = UITableView()
-var rootClass = RootModel(fromDictionary: NSDictionary() as! [String : Any])
-private let refreshControl = UIRefreshControl()
+  //MARK: IBOutlets
+  var tblview = UITableView()
+  let presenter = ViewControllerPresenter(apiManager: APIManager())
+  private let refreshControl = UIRefreshControl()
+  var activityIndicator = UIActivityIndicatorView()
   
   
   //MARK: App lifeCycle function
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      self.setTableView()
-      fetchDataFromAPI()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.setTableView()
+    presenter.listView = self
+    presenter.fetchDataFromAPI()
   }
   
   func setTableView(){
@@ -43,23 +45,8 @@ private let refreshControl = UIRefreshControl()
     
   }
   @objc private func refreshAPIData(_ sender: Any) {
-   
-      fetchDataFromAPI()
-  }
-  
-  func fetchDataFromAPI(){
+    presenter.fetchDataFromAPI()
     
-    APIManager().makeGetCall(WSUrl: API_BASE_URL + APIManager.Endpoint.facts.rawValue) { (response, error) in
-         self.rootClass = RootModel(fromDictionary: response as! [String : Any])
-           DispatchQueue.main.async {
-             self.title = self.rootClass.title
-             self.refreshControl.endRefreshing()
-             self.tblview.reloadData()
-            
-           }
-         
-         // self.activityIndicatorView.stopAnimating()
-         }
   }
   
 }
@@ -67,29 +54,30 @@ private let refreshControl = UIRefreshControl()
 
 extension ViewController: UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return rootClass.rows.count
+    
+    return presenter.rootClass.rows.count
   }
-
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListviewCell
-     let obj = rootClass.rows[indexPath.row]
-     cell.selectionStyle = .none
-     cell.lblTitle.text = obj.title
-     cell.lblDescription.text = obj.descriptionField
-     if obj.imageHref != nil{
-     let url = URL(string: obj.imageHref)!
-     cell.img.downloaded(from: url)
+    
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListviewCell
+    let obj = presenter.rootClass.rows[indexPath.row]
+    cell.selectionStyle = .none
+    cell.lblTitle.text = obj.title
+    cell.lblDescription.text = obj.descriptionField
+    if obj.imageHref != nil{
+      let url = URL(string: obj.imageHref)!
+      cell.img.downloaded(from: url)
     }
     return cell
   }
-
-
+  
+  
 }
 extension UIImageView {
   func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) { 
-     contentMode = mode
-     URLSession.shared.dataTask(with: url) { data, response, error in
+    contentMode = mode
+    URLSession.shared.dataTask(with: url) { data, response, error in
       guard
         let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
         let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
@@ -99,6 +87,29 @@ extension UIImageView {
       DispatchQueue.main.async() {
         self.image = image
       }
-     }.resume()
- }
+    }.resume()
+  }
 }
+
+extension ViewController: ListView {
+  func startLoading() {
+    activityIndicator.startAnimating()
+  }
+  
+  func finishLoading() {
+    self.title = presenter.rootClass.title
+    self.refreshControl.endRefreshing()
+    self.tblview.reloadData()
+    activityIndicator.stopAnimating()
+  }
+  
+  func setEmptyPeople() {
+    tblview.isHidden = true
+  }
+  func stopIndicator(){
+    self.refreshControl.endRefreshing()
+    activityIndicator.stopAnimating()
+    
+  }
+}
+

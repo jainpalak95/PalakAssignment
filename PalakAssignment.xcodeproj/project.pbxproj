@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC3D90BC243F384800529CBE /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D90BB243F384800529CBE /* ViewControllerPresenter.swift */; };
+		DC3D90BE243F491B00529CBE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D90BD243F491B00529CBE /* NetworkManager.swift */; };
 		DC3E02DB243CC33C00280724 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3E02DA243CC33C00280724 /* ViewController.swift */; };
 		DC3E02DD243CCA9000280724 /* ListviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3E02DC243CCA9000280724 /* ListviewCell.swift */; };
 		DC647B462434D3C80067DAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B452434D3C80067DAF2 /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC3D90BB243F384800529CBE /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
+		DC3D90BD243F491B00529CBE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DC3E02DA243CC33C00280724 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC3E02DC243CCA9000280724 /* ListviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListviewCell.swift; sourceTree = "<group>"; };
 		DC647B422434D3C80067DAF2 /* PalakAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalakAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				DC647B702434ED2B0067DAF2 /* APIManager.swift */,
+				DC3D90BD243F491B00529CBE /* NetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 		DC647B6B2434DFB50067DAF2 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				DC3D90BB243F384800529CBE /* ViewControllerPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -256,9 +262,11 @@
 				DC647B462434D3C80067DAF2 /* AppDelegate.swift in Sources */,
 				DC647B482434D3C80067DAF2 /* SceneDelegate.swift in Sources */,
 				DC3E02DD243CCA9000280724 /* ListviewCell.swift in Sources */,
+				DC3D90BE243F491B00529CBE /* NetworkManager.swift in Sources */,
 				DC647B6F2434E6FA0067DAF2 /* Row.swift in Sources */,
 				DC647B6E2434E6FA0067DAF2 /* RootModel.swift in Sources */,
 				DC3E02DB243CC33C00280724 /* ViewController.swift in Sources */,
+				DC3D90BC243F384800529CBE /* ViewControllerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
