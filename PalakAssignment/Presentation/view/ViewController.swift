@@ -61,6 +61,7 @@ extension ViewController: UITableViewDataSource{
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListviewCell
+    if presenter.rootClass.rows.count > 0{
     let obj = presenter.rootClass.rows[indexPath.row]
     cell.selectionStyle = .none
     cell.lblTitle.text = obj.title
@@ -68,6 +69,7 @@ extension ViewController: UITableViewDataSource{
     if obj.imageHref != nil{
       let url = URL(string: obj.imageHref)!
       cell.img.downloaded(from: url)
+    }
     }
     return cell
   }

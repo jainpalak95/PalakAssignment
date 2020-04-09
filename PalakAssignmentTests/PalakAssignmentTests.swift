@@ -10,25 +10,42 @@ import XCTest
 @testable import PalakAssignment
 
 class PalakAssignmentTests: XCTestCase {
-
+     var controller: ViewController!
+  
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    controller = ViewController()
+     
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+  func testTableview(){
+    XCTAssertNotNil(controller.tblview)
+  }
+  
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+  func testTableViewDataSourceProtocol() {
+         XCTAssertTrue(controller.conforms(to: UITableViewDataSource.self))
+         XCTAssertTrue(controller.responds(to: #selector(controller.tableView(_:numberOfRowsInSection:))))
+         XCTAssertTrue(controller.responds(to: #selector(controller.tableView(_:cellForRowAt:))))
+     }
+  
+  func testTableViewCell() {
+      let indexPath = IndexPath(row: 0, section: 0)
+      controller.tblview.register(ListviewCell.self, forCellReuseIdentifier: "cell")
+      let cell = controller.tableView(controller.tblview, cellForRowAt: indexPath) as! ListviewCell
+      XCTAssertNotNil(cell)
+      let view = cell.contentView
+      XCTAssertNotNil(view)
+  }
+  
+  func testTableViewCellHasReuseIdentifier() {
+    
+      controller.tblview.register(ListviewCell.self, forCellReuseIdentifier: "cell")
+      let cell = controller.tableView(controller.tblview, cellForRowAt: IndexPath(row: 0, section: 0)) as? ListviewCell
+      let actualReuseIdentifer = cell?.reuseIdentifier
+      let expectedReuseIdentifier = "cell"
+      XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
+  }
+  
+  
 
 }

@@ -14,26 +14,13 @@ class ListviewCell: UITableViewCell{
   var img = UIImageView()
   var lblTitle = UILabel()
   var lblDescription =  UILabel()
-  //var backView = UIView()
- 
-  
-//  lazy var backView : UIView = {
-//
-//    let view = UIView(frame: CGRect(x: 10, y: 6, width: (self.frame.width - 20), height: 100))
-//    view.backgroundColor = UIColor.green
-//    return view
-//    }()
-  
- 
+
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-//    backView = UIView(frame: CGRect(x: 10, y: 6, width: (self.frame.width - 20), height: 100))
-//    backView.backgroundColor = UIColor.green
     contentView.addSubview(img)
     contentView.addSubview(lblTitle)
     contentView.addSubview(lblDescription)
     setImageConstraint()
-    configureImageView()
     setTitleConstraint()
     setDescriptionConstraint()
 
@@ -42,14 +29,6 @@ class ListviewCell: UITableViewCell{
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-  
-  func configureImageView(){
-    
-    img.layer.cornerRadius = img.frame.height / 2
-    img.clipsToBounds = true
-    img.layer.masksToBounds = true
-    
   }
   func setImageConstraint(){
     
@@ -88,8 +67,6 @@ class ListviewCell: UITableViewCell{
   override func layoutSubviews() {
     contentView.backgroundColor = UIColor.clear
     backgroundColor = UIColor.clear
-//    backView.layer.cornerRadius = 5
-//    backView.clipsToBounds = true
   }
 
 }
