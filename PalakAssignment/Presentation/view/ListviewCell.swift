@@ -14,60 +14,80 @@ class ListviewCell: UITableViewCell{
   var img = UIImageView()
   var lblTitle = UILabel()
   var lblDescription =  UILabel()
-
+  var backView = UIView()
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    contentView.addSubview(img)
-    contentView.addSubview(lblTitle)
-    contentView.addSubview(lblDescription)
+    contentView.addSubview(backView)
+    backView.addSubview(img)
+    backView.addSubview(lblTitle)
+    backView.addSubview(lblDescription)
+    setBackView()
     setImageConstraint()
     setTitleConstraint()
     setDescriptionConstraint()
-   
+    addCorner()
+    
   }
- 
+  
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  func setImageConstraint(){
-    
+  func setBackView(){
     let marginGuide = contentView.layoutMarginsGuide
+    backView.translatesAutoresizingMaskIntoConstraints = false
+    backView.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 8).isActive = true
+    backView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor, constant: -8).isActive = true
+    backView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor, constant: 8).isActive = true
+    backView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -8).isActive = true
+  }
+  func setImageConstraint(){
     img.translatesAutoresizingMaskIntoConstraints = false
-    img.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 15).isActive = true
-    img.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor,constant: 15).isActive = true
     img.heightAnchor.constraint(equalToConstant: 100).isActive = true
     img.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    img.topAnchor.constraint(equalTo: backView.topAnchor, constant: 8).isActive = true
+    img.leadingAnchor.constraint(equalTo: backView.leadingAnchor,constant: 8).isActive = true
     self.img.image = UIImage(named: "placeholder")
     self.img.backgroundColor = UIColor.lightGray
+    img.layer.cornerRadius = 50
+    img.clipsToBounds = true
     
   }
   
   func setTitleConstraint(){
-     let marginGuide = contentView.layoutMarginsGuide
     lblTitle.translatesAutoresizingMaskIntoConstraints = false
     lblTitle.numberOfLines = 0
     lblTitle.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
     lblTitle.leadingAnchor.constraint(equalTo: img.trailingAnchor, constant: 15).isActive = true
-    lblTitle.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -15).isActive = true
-    lblTitle.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 10).isActive = true
+    lblTitle.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -8).isActive = true
+    lblTitle.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5).isActive = true
     
   }
   
   func setDescriptionConstraint(){
-     let marginGuide = contentView.layoutMarginsGuide
     lblDescription.translatesAutoresizingMaskIntoConstraints = false
     lblDescription.numberOfLines = 0
     lblDescription.font = UIFont(name: "Avenir-Book", size: 12)
     lblDescription.leadingAnchor.constraint(equalTo: img.trailingAnchor, constant: 15).isActive = true
-    lblDescription.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -15).isActive = true
-       lblDescription.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 15).isActive = true
-    lblDescription.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor, constant: -15).isActive = true
+    lblDescription.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 15).isActive = true
+    lblDescription.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -8).isActive = true
+    lblDescription.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -8).isActive = true
+    lblDescription.heightAnchor.constraint(greaterThanOrEqualToConstant: 65).isActive = true
+    lblDescription.sizeToFit()
     
   }
   
+  
+  func addCorner(){
+    
+    backView.layer.cornerRadius = 15
+    backView.clipsToBounds = true
+    backView.layer.borderColor = UIColor.lightGray.cgColor
+    backView.layer.borderWidth = 0.5
+  }
   override func layoutSubviews() {
-   
+    
     contentView.backgroundColor = UIColor.clear
     backgroundColor = UIColor.clear
   }
