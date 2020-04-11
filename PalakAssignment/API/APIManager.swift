@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-
+import UIKit
 
 let API_BASE_URL = "https://dl.dropboxusercontent.com"
 
@@ -23,7 +22,7 @@ class APIManager {
         case facts = "/s/2iodh4vg0eortkl/facts.json"
     }
   
-
+  //MARK: API calling
   func makeGetCall(WSUrl:String,WSCompletionBlock:@escaping (_ data:AnyObject?,_ error:NSError?) -> ()){
     
      let newurl = WSUrl
@@ -77,7 +76,30 @@ class APIManager {
      task.resume()
    
   }
+}
+//MARK: this function will download the image from the url.
+extension UIImageView {
   
+  func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleToFill) {
+    contentMode = mode
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      
+      if  let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+        let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+        let data = data, error == nil,
+        let image = UIImage(data: data)
+      {
+        DispatchQueue.main.async() {
+          self.image = image
+        }
+      }
+      else {
+        DispatchQueue.main.async() {
+          self.image =  UIImage(named: "placeholder") }
+      }
+      
+    }.resume()
+  }
 }
 
 

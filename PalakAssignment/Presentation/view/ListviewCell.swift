@@ -23,7 +23,7 @@ class ListviewCell: UITableViewCell{
     setImageConstraint()
     setTitleConstraint()
     setDescriptionConstraint()
-
+   
   }
  
   
@@ -38,6 +38,8 @@ class ListviewCell: UITableViewCell{
     img.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor,constant: 15).isActive = true
     img.heightAnchor.constraint(equalToConstant: 100).isActive = true
     img.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    self.img.image = UIImage(named: "placeholder")
+    self.img.backgroundColor = UIColor.lightGray
     
   }
   
@@ -48,7 +50,7 @@ class ListviewCell: UITableViewCell{
     lblTitle.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
     lblTitle.leadingAnchor.constraint(equalTo: img.trailingAnchor, constant: 15).isActive = true
     lblTitle.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -15).isActive = true
-    lblTitle.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 15).isActive = true
+    lblTitle.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 10).isActive = true
     
   }
   
@@ -65,8 +67,9 @@ class ListviewCell: UITableViewCell{
   }
   
   override func layoutSubviews() {
+   
     contentView.backgroundColor = UIColor.clear
     backgroundColor = UIColor.clear
   }
-
+  
 }

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
   //MARK: IBOutlets
   var tblview = UITableView()
   let presenter = ViewControllerPresenter(apiManager: APIManager())
-  private let refreshControl = UIRefreshControl()
+  let refreshControl = UIRefreshControl()
   var activityIndicator = UIActivityIndicatorView()
   
   
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
     tblview.backgroundColor = UIColor.clear
     tblview.dataSource = self
+    view.backgroundColor = UIColor.white
     view.addSubview(tblview)
     tblview.refreshControl = refreshControl
     tblview.separatorColor = UIColor.clear
@@ -48,70 +49,14 @@ class ViewController: UIViewController {
     presenter.fetchDataFromAPI()
     
   }
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+   
+    self.view.layoutIfNeeded()
+    tblview.reloadData()
+
+    
+  }
   
 }
 
-
-extension ViewController: UITableViewDataSource{
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-    return presenter.rootClass.rows.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListviewCell
-    if presenter.rootClass.rows.count > 0{
-    let obj = presenter.rootClass.rows[indexPath.row]
-    cell.selectionStyle = .none
-    cell.lblTitle.text = obj.title
-    cell.lblDescription.text = obj.descriptionField
-    if obj.imageHref != nil{
-      let url = URL(string: obj.imageHref)!
-      cell.img.downloaded(from: url)
-    }
-    }
-    return cell
-  }
-  
-  
-}
-extension UIImageView {
-  func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) { 
-    contentMode = mode
-    URLSession.shared.dataTask(with: url) { data, response, error in
-      guard
-        let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-        let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-        let data = data, error == nil,
-        let image = UIImage(data: data)
-        else { return }
-      DispatchQueue.main.async() {
-        self.image = image
-      }
-    }.resume()
-  }
-}
-
-extension ViewController: ListView {
-  func startLoading() {
-    activityIndicator.startAnimating()
-  }
-  
-  func finishLoading() {
-    self.title = presenter.rootClass.title
-    self.refreshControl.endRefreshing()
-    self.tblview.reloadData()
-    activityIndicator.stopAnimating()
-  }
-  
-  func setEmptyPeople() {
-    tblview.isHidden = true
-  }
-  func stopIndicator(){
-    self.refreshControl.endRefreshing()
-    activityIndicator.stopAnimating()
-    
-  }
-}
 

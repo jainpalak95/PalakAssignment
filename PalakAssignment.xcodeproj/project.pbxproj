@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		DC3D90BC243F384800529CBE /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D90BB243F384800529CBE /* ViewControllerPresenter.swift */; };
 		DC3D90BE243F491B00529CBE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D90BD243F491B00529CBE /* NetworkManager.swift */; };
+		DC3DB0072441B1110095CAD6 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3DB0062441B1110095CAD6 /* ViewControllerExtension.swift */; };
+		DC3DB0092441B3130095CAD6 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3DB0082441B3130095CAD6 /* JSONTests.swift */; };
 		DC3E02DB243CC33C00280724 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3E02DA243CC33C00280724 /* ViewController.swift */; };
 		DC3E02DD243CCA9000280724 /* ListviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3E02DC243CCA9000280724 /* ListviewCell.swift */; };
 		DC647B462434D3C80067DAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B452434D3C80067DAF2 /* AppDelegate.swift */; };
 		DC647B482434D3C80067DAF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B472434D3C80067DAF2 /* SceneDelegate.swift */; };
-		DC647B4D2434D3C80067DAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC647B4B2434D3C80067DAF2 /* Main.storyboard */; };
 		DC647B4F2434D3CB0067DAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC647B4E2434D3CB0067DAF2 /* Assets.xcassets */; };
 		DC647B522434D3CB0067DAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC647B502434D3CB0067DAF2 /* LaunchScreen.storyboard */; };
 		DC647B5D2434D3CB0067DAF2 /* PalakAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B5C2434D3CB0067DAF2 /* PalakAssignmentTests.swift */; };
@@ -35,12 +36,13 @@
 /* Begin PBXFileReference section */
 		DC3D90BB243F384800529CBE /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		DC3D90BD243F491B00529CBE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DC3DB0062441B1110095CAD6 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		DC3DB0082441B3130095CAD6 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
 		DC3E02DA243CC33C00280724 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC3E02DC243CCA9000280724 /* ListviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListviewCell.swift; sourceTree = "<group>"; };
 		DC647B422434D3C80067DAF2 /* PalakAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalakAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC647B452434D3C80067DAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC647B472434D3C80067DAF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DC647B4C2434D3C80067DAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC647B4E2434D3CB0067DAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC647B512434D3CB0067DAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC647B532434D3CB0067DAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +98,6 @@
 				DC647B672434DF4C0067DAF2 /* API */,
 				DC647B452434D3C80067DAF2 /* AppDelegate.swift */,
 				DC647B472434D3C80067DAF2 /* SceneDelegate.swift */,
-				DC647B4B2434D3C80067DAF2 /* Main.storyboard */,
 				DC647B4E2434D3CB0067DAF2 /* Assets.xcassets */,
 				DC647B502434D3CB0067DAF2 /* LaunchScreen.storyboard */,
 				DC647B532434D3CB0067DAF2 /* Info.plist */,
@@ -108,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				DC647B5C2434D3CB0067DAF2 /* PalakAssignmentTests.swift */,
+				DC3DB0082441B3130095CAD6 /* JSONTests.swift */,
 				DC647B5E2434D3CB0067DAF2 /* Info.plist */,
 			);
 			path = PalakAssignmentTests;
@@ -145,6 +147,7 @@
 			children = (
 				DC3E02DA243CC33C00280724 /* ViewController.swift */,
 				DC3E02DC243CCA9000280724 /* ListviewCell.swift */,
+				DC3DB0062441B1110095CAD6 /* ViewControllerExtension.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -240,7 +243,6 @@
 			files = (
 				DC647B522434D3CB0067DAF2 /* LaunchScreen.storyboard in Resources */,
 				DC647B4F2434D3CB0067DAF2 /* Assets.xcassets in Resources */,
-				DC647B4D2434D3C80067DAF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +268,7 @@
 				DC647B6F2434E6FA0067DAF2 /* Row.swift in Sources */,
 				DC647B6E2434E6FA0067DAF2 /* RootModel.swift in Sources */,
 				DC3E02DB243CC33C00280724 /* ViewController.swift in Sources */,
+				DC3DB0072441B1110095CAD6 /* ViewControllerExtension.swift in Sources */,
 				DC3D90BC243F384800529CBE /* ViewControllerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC647B5D2434D3CB0067DAF2 /* PalakAssignmentTests.swift in Sources */,
+				DC3DB0092441B3130095CAD6 /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DC647B4B2434D3C80067DAF2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC647B4C2434D3C80067DAF2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DC647B502434D3CB0067DAF2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -427,11 +423,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GDATAGRRHA;
+				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = PalakAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MVP.PalakAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -444,11 +444,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GDATAGRRHA;
+				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = PalakAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MVP.PalakAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

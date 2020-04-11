@@ -14,6 +14,7 @@ protocol ListView: NSObjectProtocol {
   func finishLoading()
   func stopIndicator()
   func setEmptyPeople()
+  func internetAlert()
 }
 
 
@@ -28,6 +29,7 @@ class ViewControllerPresenter {
   }
   
   func fetchDataFromAPI(){
+    
     self.listView?.startLoading()
     
     if NetworkManager().isConnectedToNetwork() == true{
@@ -46,8 +48,10 @@ class ViewControllerPresenter {
       }
     }
     else{
-      print("No internet")
       listView?.stopIndicator()
+      listView?.internetAlert()
+      print("No internet")
+      
     }
     
   }
