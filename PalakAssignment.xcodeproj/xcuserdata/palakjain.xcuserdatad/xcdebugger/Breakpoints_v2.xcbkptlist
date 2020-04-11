@@ -110,8 +110,8 @@
             filePath = "PalakAssignment/Presentation/view/ListviewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "setImageConstraint()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,10 @@
             filePath = "PalakAssignment/Presentation/view/ListviewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97">
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "layoutSubviews()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

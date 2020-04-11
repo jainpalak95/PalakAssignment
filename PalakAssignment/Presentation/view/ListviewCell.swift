@@ -61,7 +61,7 @@ class ListviewCell: UITableViewCell{
     lblTitle.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
     lblTitle.leadingAnchor.constraint(equalTo: img.trailingAnchor, constant: 15).isActive = true
     lblTitle.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -8).isActive = true
-    lblTitle.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5).isActive = true
+    lblTitle.topAnchor.constraint(equalTo: backView.topAnchor, constant: 8).isActive = true
     
   }
   
