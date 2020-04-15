@@ -48,7 +48,7 @@ class ListviewCell: UITableViewCell{
     img.widthAnchor.constraint(equalToConstant: 100).isActive = true
     img.topAnchor.constraint(equalTo: backView.topAnchor, constant: 8).isActive = true
     img.leadingAnchor.constraint(equalTo: backView.leadingAnchor,constant: 8).isActive = true
-    self.img.image = UIImage(named: "placeholder")
+    self.img.image = UIImage(named: Constants.ImageName.placeholder)
     self.img.backgroundColor = UIColor.lightGray
     img.layer.cornerRadius = 50
     img.clipsToBounds = true
@@ -58,7 +58,7 @@ class ListviewCell: UITableViewCell{
   func setTitleConstraint(){
     lblTitle.translatesAutoresizingMaskIntoConstraints = false
     lblTitle.numberOfLines = 0
-    lblTitle.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+    lblTitle.font = UIFont(name: Constants.Font.avenirBold, size: 16)
     lblTitle.leadingAnchor.constraint(equalTo: img.trailingAnchor, constant: 15).isActive = true
     lblTitle.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -8).isActive = true
     lblTitle.topAnchor.constraint(equalTo: backView.topAnchor, constant: 8).isActive = true
@@ -68,7 +68,7 @@ class ListviewCell: UITableViewCell{
   func setDescriptionConstraint(){
     lblDescription.translatesAutoresizingMaskIntoConstraints = false
     lblDescription.numberOfLines = 0
-    lblDescription.font = UIFont(name: "Avenir-Book", size: 12)
+    lblDescription.font = UIFont(name: Constants.Font.avenirBook, size: 12)
     lblDescription.leadingAnchor.constraint(equalTo: img.trailingAnchor, constant: 15).isActive = true
     lblDescription.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 15).isActive = true
     lblDescription.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -8).isActive = true

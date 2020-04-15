@@ -21,6 +21,7 @@
 		DC647B6E2434E6FA0067DAF2 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B6C2434E6FA0067DAF2 /* RootModel.swift */; };
 		DC647B6F2434E6FA0067DAF2 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B6D2434E6FA0067DAF2 /* Row.swift */; };
 		DC647B712434ED2B0067DAF2 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647B702434ED2B0067DAF2 /* APIManager.swift */; };
+		DC67F5A22447226200CA028A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC67F5A12447226200CA028A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		DC647B6C2434E6FA0067DAF2 /* RootModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
 		DC647B6D2434E6FA0067DAF2 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		DC647B702434ED2B0067DAF2 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DC67F5A12447226200CA028A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				DC647B4E2434D3CB0067DAF2 /* Assets.xcassets */,
 				DC647B502434D3CB0067DAF2 /* LaunchScreen.storyboard */,
 				DC647B532434D3CB0067DAF2 /* Info.plist */,
+				DC67F5A12447226200CA028A /* Constants.swift */,
 			);
 			path = PalakAssignment;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				DC647B6F2434E6FA0067DAF2 /* Row.swift in Sources */,
 				DC647B6E2434E6FA0067DAF2 /* RootModel.swift in Sources */,
 				DC3E02DB243CC33C00280724 /* ViewController.swift in Sources */,
+				DC67F5A22447226200CA028A /* Constants.swift in Sources */,
 				DC3DB0072441B1110095CAD6 /* ViewControllerExtension.swift in Sources */,
 				DC3D90BC243F384800529CBE /* ViewControllerPresenter.swift in Sources */,
 			);

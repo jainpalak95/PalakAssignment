@@ -9,79 +9,73 @@
 import Foundation
 import UIKit
 
-let API_BASE_URL = "https://dl.dropboxusercontent.com"
+//let API_BASE_URL = "https://dl.dropboxusercontent.com"
 
 class APIManager {
   
   static let instance = APIManager()
-    
-    enum RequestMethod {
-        case get
-    }
-    enum Endpoint: String {
-        case facts = "/s/2iodh4vg0eortkl/facts.json"
-    }
   
+  enum RequestMethod {
+    case get
+  }
   //MARK: API calling
   func makeGetCall(WSUrl:String,WSCompletionBlock:@escaping (_ data:AnyObject?,_ error:NSError?) -> ()){
     
-     let newurl = WSUrl
-     guard let url = URL(string: newurl) else {
-     print("Error")
-     return
-     }
-     let urlRequest = URLRequest(url: url)
-
-     // set up the session
-     let config = URLSessionConfiguration.default
-     let session = URLSession(configuration: config)
-
-     // make the request
-     let task = session.dataTask(with: urlRequest) {
-       (data, response, error) in
-       // check for any errors
-       guard error == nil else {
-         print("error when calling GET request")
-         print(error!)
+    let newurl = WSUrl
+    guard let url = URL(string: newurl) else {
+      print("Error")
+      return
+    }
+    let urlRequest = URLRequest(url: url)
+    
+    // set up the session
+    let config = URLSessionConfiguration.default
+    let session = URLSession(configuration: config)
+    
+    // make the request
+    let task = session.dataTask(with: urlRequest) {
+      (data, response, error) in
+      // check for any errors
+      guard error == nil else {
+        print("error when calling GET request")
+        print(error!)
         WSCompletionBlock(nil,error as NSError?)
-         return
-       }
-       guard let responseData = data else {
-         print("Error: did not receive data")
+        return
+      }
+      guard let responseData = data else {
+        print("Error: did not receive data")
         WSCompletionBlock(data as AnyObject?,nil)
-         return
-       }
+        return
+      }
       let strISOLatin = String(data: responseData, encoding: .isoLatin1)
       let dataUTF8 = strISOLatin?.data(using: .utf8)
       var dict: Any? = nil
       do {
-          if let dataUTF8 = dataUTF8 {
-              dict = try JSONSerialization.jsonObject(with: dataUTF8, options: [])
-          }
+        if let dataUTF8 = dataUTF8 {
+          dict = try JSONSerialization.jsonObject(with: dataUTF8, options: [])
+        }
       } catch {
-          print("error trying to convert data to JSON")
-          return
+        print("error trying to convert data to JSON")
+        return
       }
       if dict != nil {
-          if let dict = dict {
-            WSCompletionBlock(dict as AnyObject,nil)
+        if let dict = dict {
+          WSCompletionBlock(dict as AnyObject,nil)
           
-          }
+        }
       } else {
-          if let error = error {
-              print("Error: \(error)")
-          }
+        if let error = error {
+          print("Error: \(error)")
+        }
       }
-     }
-     task.resume()
-   
+    }
+    task.resume()
+    
   }
-}
-//MARK: this function will download the image from the url.
-extension UIImageView {
   
-  func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleToFill) {
-    contentMode = mode
+  //MARK: This function will download the image from the url.
+  func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleToFill, img: UIImageView) {
+    img.contentMode = mode
     URLSession.shared.dataTask(with: url) { data, response, error in
       
       if  let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -90,16 +84,19 @@ extension UIImageView {
         let image = UIImage(data: data)
       {
         DispatchQueue.main.async() {
-          self.image = image
+          img.image = image
+          
         }
       }
       else {
         DispatchQueue.main.async() {
-          self.image =  UIImage(named: "placeholder") }
+          img.image =  UIImage(named: Constants.ImageName.placeholder) }
       }
       
     }.resume()
   }
 }
+
+
 
 

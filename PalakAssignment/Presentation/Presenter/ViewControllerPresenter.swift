@@ -33,7 +33,7 @@ class ViewControllerPresenter {
     self.listView?.startLoading()
     
     if NetworkManager().isConnectedToNetwork() == true{
-      APIManager().makeGetCall(WSUrl: API_BASE_URL + APIManager.Endpoint.facts.rawValue) { (response, error) in
+      APIManager().makeGetCall(WSUrl: API_BASE_URL +  Constants.EndURL.facts) { (response, error) in
         self.rootClass = RootModel(fromDictionary: response as! [String : Any])
         if self.rootClass.rows.count == 0{
           self.listView?.setEmptyPeople()
@@ -41,7 +41,7 @@ class ViewControllerPresenter {
         else{
           DispatchQueue.main.async {
             self.listView?.finishLoading()
-            
+           
           }
           
         }

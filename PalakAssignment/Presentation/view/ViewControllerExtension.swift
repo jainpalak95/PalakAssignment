@@ -18,7 +18,7 @@ extension ViewController: UITableViewDataSource{
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListviewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TblCellStr.cell, for: indexPath) as! ListviewCell
     if presenter.rootClass.rows.count > 0{
       let obj = presenter.rootClass.rows[indexPath.row]
       cell.selectionStyle = .none
@@ -26,14 +26,15 @@ extension ViewController: UITableViewDataSource{
       cell.lblDescription.text = obj.descriptionField
       if obj.imageHref != nil{
         let url = URL(string: obj.imageHref)!
-        cell.img.downloaded(from: url)
+       APIManager().downloaded(from: url, contentMode: .scaleToFill, img: cell.img)
       }
     }
     return cell
   }
-  
-  
 }
+  
+  
+
 
 
 extension ViewController: ListView {
@@ -57,8 +58,8 @@ extension ViewController: ListView {
     
   }
   func internetAlert(){
-    let alert = UIAlertController(title: "Alert", message: "Please check your internet connection.", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    let alert = UIAlertController(title: Constants.Alert.internetAlertTitle, message: Constants.Alert.internetAlertDesc, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: Constants.Alert.ok, style: .default, handler: nil))
     self.present(alert, animated: true)
     
   }

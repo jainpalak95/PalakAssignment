@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     view.addSubview(tblview)
     tblview.refreshControl = refreshControl
     tblview.separatorColor = UIColor.clear
-    tblview.register(ListviewCell.self, forCellReuseIdentifier: "cell")
+    tblview.register(ListviewCell.self, forCellReuseIdentifier: Constants.TblCellStr.cell)
     tblview.translatesAutoresizingMaskIntoConstraints = false
     tblview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     tblview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
