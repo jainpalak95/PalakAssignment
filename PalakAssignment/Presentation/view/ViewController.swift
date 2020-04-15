@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     tblview.dataSource = self
     view.backgroundColor = UIColor.white
     view.addSubview(tblview)
-   // view.addSubview(refreshControl)
     tblview.refreshControl = refreshControl
     tblview.separatorColor = UIColor.clear
     tblview.register(ListviewCell.self, forCellReuseIdentifier: Constants.TblCellStr.cell)

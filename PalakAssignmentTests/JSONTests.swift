@@ -11,29 +11,40 @@ import XCTest
 @testable import PalakAssignment
 
 class JSONTests: XCTestCase {
-   
-    var apiManager = APIManager()
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
   
-  func testGetRequestWithURL() {
+  var apiManager = APIManager()
+  override func setUp() {
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+  }
+  
+  func testFromJsonFile(){
     
-      let url = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
-        apiManager.makeGetCall(WSUrl: url){ (response, error) in
-        let actualResponse = RootModel(fromDictionary: response as! [String : Any])
-        XCTAssert(API_BASE_URL + APIManager.Endpoint.facts.rawValue == url)
+    if let path = Bundle.main.path(forResource: "fact", ofType: "json"){
+      
+      do {
+        guard let jsonString = try? String(contentsOfFile: path, encoding: .isoLatin1) else {
+          fatalError("Unable to convert fact.json to String")
+        }
+        
+        print("The JSON string is: \(jsonString)")
+        
+        guard let jsonData = jsonString.data(using: .utf8) else {
+          fatalError("Unable to convert fact.json to Data")
+        }
+        
+        guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String:Any] else {
+          fatalError("Unable to convert fact.json to JSON dictionary")
+        }
+        let actualResponse = RootModel(fromDictionary: jsonDictionary )
         XCTAssertEqual(actualResponse.rows.count, 13)
         XCTAssertEqual(actualResponse.title, "About Canada")
         XCTAssertEqual(actualResponse.rows[0].title, "Beavers")
         XCTAssertEqual(actualResponse.rows[1].title, "Flag")
-        XCTAssertEqual(actualResponse.rows[1].description, "")
-       
+        XCTAssertEqual(actualResponse.rows[1].descriptionField, nil)
+      }
     }
-    
-   
   }
-
-   
-
+  
+  
 }
+

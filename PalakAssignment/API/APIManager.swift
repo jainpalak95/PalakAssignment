@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-//let API_BASE_URL = "https://dl.dropboxusercontent.com"
-
 class APIManager {
   
   static let instance = APIManager()

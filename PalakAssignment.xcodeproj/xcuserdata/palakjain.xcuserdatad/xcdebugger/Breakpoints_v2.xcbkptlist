@@ -78,8 +78,8 @@
             filePath = "PalakAssignment/Model/RootModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "toDictionary()"
             landmarkType = "7">
          </BreakpointContent>
@@ -103,38 +103,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "15A080E2-B535-478D-BC70-3AF2566CB229"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PalakAssignment/Presentation/view/ListviewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "setImageConstraint()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BC031C31-894A-4CEC-8A97-7E3A7E830A21"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PalakAssignment/Presentation/view/ListviewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "layoutSubviews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "DA726E7D-F08E-4615-8F7A-3FC81AE46912"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -146,21 +114,53 @@
             endingLineNumber = "51"
             landmarkName = "fetchDataFromAPI()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DA726E7D-F08E-4615-8F7A-3FC81AE46912 - 308b1524564063c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PalakAssignment.ViewControllerPresenter.fetchDataFromAPI() -&gt; ()"
+                  moduleName = "PalakAssignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/palakjain/Desktop/PalakAssignment/PalakAssignment/Presentation/Presenter/ViewControllerPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "621">
+               </Location>
+               <Location
+                  uuid = "DA726E7D-F08E-4615-8F7A-3FC81AE46912 - 94f456a205b8f808"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in PalakAssignment.ViewControllerPresenter.fetchDataFromAPI() -&gt; ()"
+                  moduleName = "PalakAssignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/palakjain/Desktop/PalakAssignment/PalakAssignment/Presentation/Presenter/ViewControllerPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58206D38-88A3-48F5-A41B-E2E3C2F35327"
+            uuid = "0BF396BB-822C-4B66-8CA9-18E155F96A8E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PalakAssignment/Presentation/view/ViewControllerExtension.swift"
+            filePath = "PalakAssignment/Presentation/Presenter/ViewControllerPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "stopIndicator()"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "fetchDataFromAPI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

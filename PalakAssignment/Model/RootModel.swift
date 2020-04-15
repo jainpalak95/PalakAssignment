@@ -17,8 +17,11 @@ class RootModel : NSObject{
 		if let rowsArray = dictionary["rows"] as? [[String:Any]]{
 			for dic in rowsArray{
 				let value = Row(fromDictionary: dic)
-        if value.descriptionField != nil && value.title != nil && value.imageHref != nil{
-				rows.append(value)
+        if (value.descriptionField == nil && value.title == nil && value.imageHref == nil){
+      
+        }
+        else{
+        rows.append(value)
         }
 			}
 		}
