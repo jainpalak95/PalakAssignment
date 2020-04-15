@@ -12,7 +12,7 @@ var API_BASE_URL = "https://dl.dropboxusercontent.com"
 
 struct Constants{
   
-  struct EndURL {
+  struct EndURL{
     static let facts = "/s/2iodh4vg0eortkl/facts.json"
   }
   

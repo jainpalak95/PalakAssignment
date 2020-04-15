@@ -38,28 +38,34 @@ extension ViewController: UITableViewDataSource{
 
 
 extension ViewController: ListView {
-  func startLoading() {
-    activityIndicator.startAnimating()
-  }
-  
+ 
   func finishLoading() {
     self.title = presenter.rootClass.title
     self.refreshControl.endRefreshing()
     self.tblview.reloadData()
-    activityIndicator.stopAnimating()
   }
   
   func setEmptyPeople() {
     tblview.isHidden = true
   }
   func stopIndicator(){
+    DispatchQueue.main.async {
     self.refreshControl.endRefreshing()
-    activityIndicator.stopAnimating()
+    self.refreshControl.isHidden = true
+    
+    }
+ 
     
   }
   func internetAlert(){
     let alert = UIAlertController(title: Constants.Alert.internetAlertTitle, message: Constants.Alert.internetAlertDesc, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: Constants.Alert.ok, style: .default, handler: nil))
+    let okAction = UIAlertAction(title: Constants.Alert.ok, style: .default) {
+           UIAlertAction in
+    DispatchQueue.main.async {
+    self.stopIndicator()
+    }
+    }
+    alert.addAction(okAction)
     self.present(alert, animated: true)
     
   }

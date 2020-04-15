@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol ListView: NSObjectProtocol {
-  func startLoading()
+
   func finishLoading()
   func stopIndicator()
   func setEmptyPeople()
@@ -30,17 +30,17 @@ class ViewControllerPresenter {
   
   func fetchDataFromAPI(){
     
-    self.listView?.startLoading()
-    
     if NetworkManager().isConnectedToNetwork() == true{
       APIManager().makeGetCall(WSUrl: API_BASE_URL +  Constants.EndURL.facts) { (response, error) in
         self.rootClass = RootModel(fromDictionary: response as! [String : Any])
         if self.rootClass.rows.count == 0{
           self.listView?.setEmptyPeople()
+          self.listView?.stopIndicator()
         }
         else{
           DispatchQueue.main.async {
             self.listView?.finishLoading()
+            self.listView?.stopIndicator()
            
           }
           
@@ -48,10 +48,12 @@ class ViewControllerPresenter {
       }
     }
     else{
-      listView?.stopIndicator()
-      listView?.internetAlert()
-      print("No internet")
-      
+      DispatchQueue.main.async {
+        self.listView?.stopIndicator()
+        self.listView?.internetAlert()
+      }
+        
+
     }
     
   }
